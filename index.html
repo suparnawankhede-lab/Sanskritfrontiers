@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vāṇī – Spoken Sanskrit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Noto+Serif+Devanagari:wght@500;700&display=swap">
+<style>
+:root{--bg:#F2F6F4;--ink:#14262A;--mute:#52686C;--card:#fff;--line:#CFDCDA;--teal:#0E3B43;--gold:#E8A317;--lotus:#B63B63;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A1D;--ink:#E6EFEE;--mute:#98B0B3;--card:#12282C;--line:#27454A;--teal:#0A2A30;--gold:#F0B33A;--lotus:#E0759A}}
+:root[data-theme="dark"]{--bg:#0C1A1D;--ink:#E6EFEE;--mute:#98B0B3;--card:#12282C;--line:#27454A;--teal:#0A2A30;--gold:#F0B33A;--lotus:#E0759A}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Mukta,system-ui,sans-serif}
+.dv{font-family:'Noto Serif Devanagari',serif}
+header{background:var(--teal);color:#EAF3F2;padding:28px 18px 34px;text-align:center}
+h1{margin:0;font:700 30px/1.2 Mukta,sans-serif}header p{max-width:560px;margin:8px auto 0;color:#B9D2D3}
+.ring{width:150px;height:150px;margin:20px auto 8px;border-radius:50%;border:3px solid var(--gold);display:grid;place-items:center;font-size:56px;color:var(--gold);transition:transform 4s ease-in-out,box-shadow 4s;cursor:pointer}
+.ring.in{transform:scale(1.18);box-shadow:0 0 40px #E8A31766}.ring.out{transform:scale(.9);transition-duration:6s}
+#bp{min-height:24px;font-weight:600}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav button{flex:0 0 auto;border:0;background:none;color:var(--mute);font:600 15px Mukta;padding:8px 14px;border-radius:8px;cursor:pointer}
+nav button[aria-selected=true]{background:var(--teal);color:var(--on)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:860px;margin:0 auto;padding:18px 14px 50px}section[hidden]{display:none}
+h2{font-size:22px;margin:6px 0 10px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:6px 0 12px}
+.seg button{border:0;background:var(--card);color:var(--ink);padding:8px 16px;font:600 15px Mukta;cursor:pointer}.seg button.on{background:var(--gold);color:#1a1200}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:6px 0 14px}.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+.wk{margin:16px 0 6px;font-weight:700;color:var(--lotus)}.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.d{text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 10px;cursor:pointer;font:15px/1.3 Mukta}
+.d b{display:block;font-size:13px;color:var(--mute)}.d.done{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--card))}.d.sel{outline:2px solid var(--teal)}
+.big{font-size:40px;line-height:1.35;margin:4px 0;color:var(--teal)}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .big{color:var(--gold)}}
+.rom{font-size:19px;font-style:italic}.tag{display:inline-block;background:var(--teal);color:var(--on);border-radius:20px;padding:1px 12px;font-size:13px;font-weight:600}
+.btn{border:0;background:var(--teal);color:var(--on);border-radius:8px;padding:9px 16px;font:600 15px Mukta;cursor:pointer;margin:4px 6px 4px 0}.btn.g{background:var(--gold);color:#1a1200}.btn.o{background:none;border:1px solid var(--line);color:var(--ink)}
+.mean{filter:blur(7px);transition:filter .2s;cursor:pointer}.mean.show{filter:none}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}th{background:var(--teal);color:var(--on);font-weight:600}td.dv{font-size:22px}
+.sc{overflow-x:auto}.note{color:var(--mute);font-size:14px}
+.ch{display:flex;flex-wrap:wrap;gap:8px}.ch span{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 14px;font-weight:600}
+details{border-top:1px solid var(--line);padding:8px 0}summary{cursor:pointer;font-weight:700}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}.cc{text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:14px;cursor:pointer;font:15px/1.4 Mukta}.cc h3{margin:0 0 4px;font-size:18px}.cc .dv{font-size:26px;color:var(--gold)}
+.ls{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}.ls input{width:20px;height:20px;margin-top:4px;accent-color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.ring{transition:none}}
+</style></head><body>
+<header>
+<h1>Vāṇī · Spoken Sanskrit</h1>
+<p>Practical Spoken Sanskrit for communication, memory, pronunciation and cognitive development.</p>
+<div class="ring dv" id="ring" role="button" tabindex="0" aria-label="Start guided breathing">ॐ</div>
+<div id="bp">Tap ॐ to breathe with the ring</div>
+</header>
+<nav role="tablist" id="tabs"></nav>
+<main>
+<section id="t0">
+<h2>Spoken Sanskrit Beginner Course</h2>
+<div class="seg" id="mode"><button data-m="30" class="on">30-day sprint</button><button data-m="8">8-week track</button></div>
+<div id="pg" class="note"></div><div class="bar"><i id="pb"></i></div>
+<div class="card" id="lesson"></div>
+<div id="plan"></div>
+</section>
+<section id="t1" hidden>
+<h2>Sound map: where each letter is made</h2>
+<p class="note">Five consonant groups move from the throat to the lips. Say each row slowly with the tongue touching the named place.</p>
+<div class="card sc"><table id="var"></table></div>
+<div class="card"><b>Full-mouth drill (2 min)</b><p style="margin:6px 0">Say each row 5 times, then the whole chart once in one breath-length rhythm. Keep the jaw loose and feel the sound shift forward.</p>
+<button class="btn g" id="sayrow">Hear a row (cycle)</button></div>
+</section>
+<section id="t2" hidden>
+<h2>Why Sanskrit is trained this way</h2>
+<div class="card" id="why"></div>
+<p class="note">Notes here describe what learners and teachers commonly report and what small studies suggest. They are not medical claims; evidence on chanting and cognition is still limited.</p>
+</section>
+<section id="t3" hidden>
+<h2>Who it is for</h2>
+<div class="ch" id="aud"></div>
+<div class="card" id="premium"></div>
+</section>
+<section id="t4" hidden><h2>Topic courses</h2><p class="note">Eight focused courses, one for each skill in the beginner programme. Take them alone or alongside the main course.</p><div id="cl"></div></section>
+</main>
+<script>
+const L=[
+["Breath and ॐ","Breath","ॐ","oṃ","The primal sacred syllable","Inhale 4, exhale 6 while humming the final ‘m’ until you feel the face vibrate."],
+["Short and long vowels","Phonetics","अ आ इ ई उ ऊ","a ā i ī u ū","Short vowels take one beat, long take two","Hold long vowels exactly twice as long as short ones."],
+["Diphthongs","Phonetics","ए ऐ ओ औ","e ai o au","Compound vowels","Open the mouth wide on ऐ and औ; round the lips fully on ओ."],
+["Throat sounds","Tongue","क ख ग घ ङ","ka kha ga gha ṅa","Velar group (back of tongue)","Feel the back of the tongue lift. Say ‘kha’ with a puff of breath."],
+["Palate sounds","Tongue","च छ ज झ ञ","ca cha ja jha ña","Palatal group (middle tongue)","Press the tongue blade to the hard palate."],
+["Retroflex sounds","Tongue","ट ठ ड ढ ण","ṭa ṭha ḍa ḍha ṇa","Tongue tip curls back","Curl the tip to the roof of the mouth, then release crisply."],
+["Dental sounds","Tongue","त थ द ध न","ta tha da dha na","Tongue touches the teeth","Touch the back of the upper teeth, not the ridge."],
+["Lip sounds","Resonance","प फ ब भ म","pa pha ba bha ma","Labial group","Feel your lips buzz on भ and म."],
+["Semivowels and sibilants","Phonetics","य र ल व श ष स ह","ya ra la va śa ṣa sa ha","Glides, hissing and breath sounds","Whisper श ष स and notice where the air changes."],
+["Namaste","Phonetics","नमस्ते","namaste","I bow to you (greeting)","Say it to three people today."],
+["Good morning","Chant","सुप्रभातम्","suprabhātam","Good morning","Stretch the long ā and finish with a closed lip ‘m’."],
+["How are you?","Focus","भवान् कथम् अस्ति?","bhavān katham asti?","How are you? (to a man; use भवती for a woman)","Raise your pitch gently at the end."],
+["I am well","Focus","अहं कुशली अस्मि","ahaṃ kuśalī asmi","I am well","Reply to yesterday’s question out loud."],
+["My name is","Memory","मम नाम ... अस्ति","mama nāma ... asti","My name is ...","Fill the blank with your name and repeat 5 times."],
+["Your name?","Memory","भवतः नाम किम्?","bhavataḥ nāma kim?","What is your name?","Pair with yesterday’s phrase as a two-line dialogue."],
+["Thank you","Phonetics","धन्यवादः","dhanyavādaḥ","Thank you","Notice the aspirated ‘dha’ then the nasal ‘n’."],
+["Please","Memory","कृपया","kṛpayā","Please","Say it before every request today."],
+["Excuse me","Focus","क्षम्यताम्","kṣamyatām","Excuse me / forgive me","Practise the tricky ‘kṣa’ cluster slowly, then at speed."],
+["I learn Sanskrit","Memory","अहं संस्कृतं पठामि","ahaṃ saṃskṛtaṃ paṭhāmi","I read/study Sanskrit","Chant it on one steady pitch."],
+["Ask for water","Phonetics","कृपया जलं देहि","kṛpayā jalaṃ dehi","Please give water","Combine with yesterday’s ‘please’."],
+["I go home","Memory","अहं गृहं गच्छामि","ahaṃ gṛhaṃ gacchāmi","I am going home","Clap on each syllable to feel the rhythm."],
+["What is this?","Focus","इदं किम्?","idaṃ kim?","What is this?","Point at 5 objects and ask each time."],
+["Numbers 1 to 3","Memory","एकं द्वे त्रीणि","ekaṃ dve trīṇi","One, two, three","Count your breaths in Sanskrit."],
+["First verse: truth","Rhythm","सत्यं ब्रूयात् प्रियं ब्रूयात्","satyaṃ brūyāt priyaṃ brūyāt","Speak the truth, speak pleasantly","Verse lines have 8 syllables: tap 8 beats per line to memorise."],
+["Verse: knowledge","Rhythm","विद्या ददाति विनयम्","vidyā dadāti vinayam","Knowledge gives humility","Say it with a slow walking pace."],
+["Verse: all be happy","Rhythm","सर्वे भवन्तु सुखिनः","sarve bhavantu sukhinaḥ","May all be happy","Chant on one exhale without strain."],
+["Verse: truth","Chant","असतो मा सद्गमय","asato mā sadgamaya","Lead me from untruth to truth","Add a pause after each phrase to feel the resonance."],
+["Verse: all beings","Rhythm","लोकाः समस्ताः सुखिनो भवन्तु","lokāḥ samastāḥ sukhino bhavantu","May all the worlds be happy","Recite from memory, then check."],
+["See you again","Focus","पुनर्मिलामः","punar milāmaḥ","Let us meet again","Run a full dialogue: greeting, name, thanks, goodbye."],
+["Closing recitation","Chant","ॐ शान्तिः शान्तिः शान्तिः","oṃ śāntiḥ śāntiḥ śāntiḥ","Peace, peace, peace","Chant three times with slow, even breaths."]];
+const WK=[["Sound and breath",4],["Vowels and resonance",4],["Consonant groups",4],["Greetings",4],["Daily conversation",4],["Memory and polite speech",4],["Rhythm and verse",3],["Recitation and review",3]];
+const V=[["Throat (kaṇṭhya)","क","ख","ग","घ","ङ"],["Palate (tālavya)","च","छ","ज","झ","ञ"],["Retroflex (mūrdhanya)","ट","ठ","ड","ढ","ण"],["Teeth (dantya)","त","थ","द","ध","न"],["Lips (oṣṭhya)","प","फ","ब","भ","म"]];
+const W=[["Full-mouth activation","Sanskrit sounds are produced across the whole mouth, from throat to lips. Each group uses a different tongue position, so the jaw, tongue, palate and lips all get used in even amounts. Learners often report speech feeling clearer and less mumbled after a few weeks of daily practice."],["Pronunciation and articulation","Short and long vowels, aspirated and unaspirated consonants, and retroflex versus dental sounds train precise control of timing and breath. Practising these contrasts carefully is good articulation training for any language."],["Memorisation through meter and rhythm","Verses follow fixed syllable counts and patterns. Rhythm, rhyme-like repetition and melody give the brain multiple hooks, which is why traditional learners could recall long texts. Tapping or clapping the beat while reciting strengthens recall."],["Chanting, breath and attention","Chanting is done on a slow, extended exhale, which naturally lengthens breathing. Many practitioners find slow breathing plus sustained humming calming and helpful for focus. Small studies on chanting and attention are encouraging but not conclusive."]];
+const AUD=["Parents","Students","Yoga practitioners","Professionals","Senior citizens","Homeschool communities","Global Indic learners"];
+const $=s=>document.querySelector(s);let mode="30",cur=0,done=new Set();
+try{done=new Set(JSON.parse(localStorage.getItem("vani")||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem("vani",JSON.stringify([...done]))}catch(e){}};
+const wkOf=i=>{let n=0;for(let w=0;w<8;w++){n+=WK[w][1];if(i<n)return w}};
+function speak(t,rate){if(!window.speechSynthesis)return;const u=new SpeechSynthesisUtterance(t);u.lang="hi-IN";u.rate=rate||.7;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function plan(){let h="",last=-1;L.forEach((l,i)=>{const w=wkOf(i);if(mode=="8"&&w!=last){h+=`<div class="wk">Week ${w+1}: ${WK[w][0]}</div><div class="days">`;}
+if(mode=="30"&&i%5==0){h+=(i?"</div>":"")+`<div class="wk">Days ${i+1}–${Math.min(i+5,30)}</div><div class="days">`}
+if(mode=="8"&&w!=last&&last>=0){h=h.replace(/(<div class="wk">Week[^]*)$/,m=>m)}
+last=w;h+=`<button class="d ${done.has(i)?"done":""} ${i==cur?"sel":""}" data-i="${i}"><b>${mode=="30"?"Day ":"Session "}${i+1}${done.has(i)?" ✓":""}</b>${l[0]}</button>`;
+if(mode=="8"&&(i==L.length-1||wkOf(i+1)!=w))h+="</div>"});
+$("#plan").innerHTML=h+"</div>";
+$("#plan").querySelectorAll(".d").forEach(b=>b.onclick=()=>{cur=+b.dataset.i;plan();lesson();scrollTo({top:0,behavior:"smooth"})});
+const p=Math.round(done.size/30*100);$("#pb").style.width=p+"%";$("#pg").textContent=done.size+" of 30 lessons complete ("+p+"%)"}
+function lesson(){const l=L[cur];$("#lesson").innerHTML=`<span class="tag">${l[1]}</span> <span class="note">Week ${wkOf(cur)+1} · ${mode=="30"?"Day":"Session"} ${cur+1}: ${l[0]}</span>
+<div class="big dv">${l[2]}</div><div class="rom">${l[3]}</div>
+<p>Meaning: <span class="mean" id="mn" title="Tap to reveal">${l[4]}</span></p><p class="note">Say it aloud first, then tap the meaning to check yourself.</p>
+<p><b>Practice:</b> ${l[5]}</p>
+<button class="btn g" id="sp">Listen (slow)</button><button class="btn o" id="sp2">Listen (normal)</button><button class="btn o" id="br">Breath pacer</button><button class="btn" id="dn">${done.has(cur)?"Mark not done":"Mark complete"}</button>
+<p class="note">Audio uses your device’s Hindi voice as an approximation of Sanskrit sounds.</p>`;
+$("#mn").onclick=e=>e.target.classList.toggle("show");$("#sp").onclick=()=>speak(l[2],.55);$("#sp2").onclick=()=>speak(l[2],.9);$("#br").onclick=()=>{scrollTo({top:0,behavior:"smooth"});breath()};
+$("#dn").onclick=()=>{done.has(cur)?done.delete(cur):done.add(cur);save();plan();lesson()}}
+let bt=null;function breath(){const r=$("#ring"),t=$("#bp");if(bt){clearTimeout(bt);bt=null;r.className="ring dv";t.textContent="Tap ॐ to breathe with the ring";return}
+const ph=[["Inhale (4)","in",4000],["Hold (4)","in",4000],["Exhale with a hum (6)","out",6000]];let k=0;
+(function s(){const p=ph[k%3];t.textContent=p[0];r.className="ring dv "+p[1];bt=setTimeout(s,p[2]);k++})()}
+$("#ring").onclick=breath;$("#ring").onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();breath()}};
+const names=[["Beginner course",0],["Topic courses",4],["Sound map",1],["Why it works",2],["Who it is for",3]];
+names.forEach(([n,id],i)=>{const b=document.createElement("button");b.textContent=n;b.setAttribute("role","tab");b.setAttribute("aria-selected",i==0);b.onclick=()=>{document.querySelectorAll("nav button").forEach((x,j)=>x.setAttribute("aria-selected",j==i));for(let j=0;j<5;j++)$("#t"+j).hidden=j!=id};$("#tabs").appendChild(b)});
+$("#mode").querySelectorAll("button").forEach(b=>b.onclick=()=>{mode=b.dataset.m;$("#mode").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x==b));plan();lesson()});
+$("#var").innerHTML="<tr><th>Place</th><th>Unaspirated</th><th>Aspirated</th><th>Voiced</th><th>Voiced aspirated</th><th>Nasal</th></tr>"+V.map(r=>"<tr><th>"+r[0]+"</th>"+r.slice(1).map(c=>`<td class="dv">${c}</td>`).join("")+"</tr>").join("");
+let rr=0;$("#sayrow").onclick=()=>{speak(V[rr%5].slice(1).join(" "),.5);rr++};
+$("#why").innerHTML=W.map((w,i)=>`<details ${i==0?"open":""}><summary>${w[0]}</summary><p>${w[1]}</p></details>`).join("");
+$("#aud").innerHTML=AUD.map(a=>`<span>${a}</span>`).join("");
+$("#premium").innerHTML="<b>Premium course:</b> Spoken Sanskrit Beginner Course in 30 days or 8 weeks. Daily conversation, pronunciation, memory exercises, resonance, recitation rhythm, and focus training, with each lesson built around a short phrase you can use the same day.";
+
+const C=[
+["ध्वनिः","Phonetic System","7 days","Read and say every Sanskrit sound accurately.","Everyone starting out",[["Short and long vowels","Say अ आ इ ई उ ऊ; hold long vowels twice as long."],["Diphthongs","Practise ए ऐ ओ औ with a clear mouth shape change."],["Five consonant groups","Chant क to म in rows of five."],["Semivowels","Glide य र ल व smoothly without stopping."],["Sibilants and ह","Whisper श ष स and tell them apart."],["Anusvāra and visarga","Add ṃ and ḥ endings to 5 words."],["Conjunct letters","Read क्ष, ज्ञ, त्र slowly, then at speed."]]],
+["स्थानम्","Tongue Positions","5 days","Place the tongue correctly for each sound group.","Students, professionals, speakers",[["Throat sounds","Lift the back of the tongue for क ख ग घ ङ."],["Palate sounds","Press the tongue blade to the palate for च ज."],["Retroflex sounds","Curl the tip back for ट ड ण."],["Dental sounds","Touch the teeth for त द न."],["Lip sounds","Close the lips for प ब म and compare all five rows."]]],
+["प्राणः","Breath Control","7 days","Chant longer on a calm, steady exhale.","Yoga practitioners, seniors, professionals",[["Notice your breath","Spend 3 min watching a natural nose breath."],["Inhale 4, exhale 6","Repeat 10 rounds seated."],["Humming exhale","Exhale on a soft ‘m’ for 6 seconds."],["One syllable at a time","Say one syllable per exhale, then two, then four."],["Pause with the breath","Insert a short pause at each line end."],["Release with ‘ha’","Let tension out on a sigh before chanting."],["One-breath chant","Recite a short verse in one exhale without strain."]]],
+["नादः","Chant Vibration","7 days","Feel and control the vibration of sustained sound.","Yoga practitioners, parents, seniors",[["Humming ‘m’","Hum with lips closed and feel the lips and nose buzz."],["A-U-M","Split ॐ into three parts of equal length."],["Chest and head","Hum low then high; note where you feel it."],["Steady pitch","Hold one pitch for 10 seconds."],["Soft volume","Chant at a whisper without losing the sound."],["Closing silence","Stay quiet for 30 seconds after each round."],["Chant with a partner","Match pitch and timing with another person."]]],
+["स्मृतिः","Memory Exercises","8 days","Memorise short Sanskrit lines quickly and keep them.","Students, homeschoolers, seniors",[["Chunking","Break a verse into four quarters."],["Clap and tap","Tap the beat while you say each quarter."],["Echo recall","Listen, then repeat without reading."],["Memory walk","Attach each line to a spot in a familiar room."],["Quarter by quarter","Add one quarter per day until complete."],["Spaced review","Recite after 1 hour, 1 day and 3 days."],["Reverse recall","Say the lines from last to first."],["Teach it","Teach the verse to someone else."]]],
+["अनुनादः","Sound Resonance","5 days","Make sound fuller and clearer through the head, face and chest.","Professionals, singers, teachers",[["Face vs chest","Say ‘ma’ and move the buzz between face and chest."],["Nasal sounds","Chant ङ ञ ण न म and feel the nose resonate."],["Shape the vowels","Round and open the mouth on a, u and o."],["Open throat","Yawn gently, then chant on the open throat."],["Listen to the echo","Sing in a hall or bathroom and note the ring."]]],
+["छन्दः","Recitation Rhythm","7 days","Recite with correct rhythm so verses stay in memory.","Students, homeschoolers, parents",[["Beat counting","Short syllable gets one beat, long gets two."],["Eight syllables","Count 8 syllables per line in a simple verse."],["Four quarters","Mark the four parts of a verse aloud."],["Steady pace","Chant with a metronome or foot tap."],["Pauses","Pause only at quarter ends."],["Melodic contour","Rise slightly mid-line and fall at the end."],["Full verse","Recite one whole verse smoothly twice."]]],
+["एकाग्रता","Focus and Concentration","7 days","Hold attention on one sound or line for longer.","Professionals, students, seniors",[["One phrase","Repeat a single phrase for 3 min."],["Sound anchor","When the mind wanders, return to the sound."],["Counting beads","Count 27 repetitions on a mala or fingers."],["Slow recitation","Halve your speed and keep it even."],["Eyes closed recall","Recite from memory with eyes closed."],["Distraction reset","Notice a distraction, breathe, resume."],["Ten-minute session","Combine breath, hum and recitation for 10 min."]]]];
+let cp=new Set();try{cp=new Set(JSON.parse(localStorage.getItem("vani2")||"[]"))}catch(e){}
+const sv2=()=>{try{localStorage.setItem("vani2",JSON.stringify([...cp]))}catch(e){}};
+function courses(open){const el=$("#cl");
+if(open==null){el.innerHTML='<div class="cg">'+C.map((c,i)=>{const d=c[5].filter((_,j)=>cp.has(i+"-"+j)).length;return `<button class="cc" data-i="${i}"><div class="dv">${c[0]}</div><h3>${c[1]}</h3><div class="note">${c[2]} · ${d}/${c[5].length} done</div><p style="margin:6px 0 0">${c[3]}</p></button>`}).join("")+"</div>";
+el.querySelectorAll(".cc").forEach(b=>b.onclick=()=>courses(+b.dataset.i));return}
+const c=C[open];el.innerHTML=`<button class="btn o" id="bk">Back to all courses</button><div class="card"><div class="dv" style="font-size:30px;color:var(--gold)">${c[0]}</div><h2 style="margin:0">${c[1]}</h2><p class="note">${c[2]} · Best for: ${c[4]}</p><p>Goal: ${c[3]}</p>`+
+c[5].map((l,j)=>{const k=open+"-"+j;return `<label class="ls"><input type="checkbox" data-k="${k}" ${cp.has(k)?"checked":""}><span><b>Lesson ${j+1}: ${l[0]}</b><br>${l[1]}</span></label>`}).join("")+"</div>";
+$("#bk").onclick=()=>courses();el.querySelectorAll("input").forEach(x=>x.onchange=()=>{x.checked?cp.add(x.dataset.k):cp.delete(x.dataset.k);sv2()})}
+courses();
+plan();lesson();
+</script></body></html>
